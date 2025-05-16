@@ -5,17 +5,22 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "paw-care",
+    "scheme": "petcareweb",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
+       "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to upload your profile picture."
+      },
       "supportsTablet": true
     },
     "android": {
+      "permissions": ["READ_MEDIA_IMAGES"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "edgeToEdgeEnabled": true
     },
     "web": {
       "bundler": "metro",

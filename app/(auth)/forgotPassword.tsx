@@ -1,17 +1,16 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  View,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  ScrollView,
-  Platform,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from 'react-native';
-import PetSignIn from '../../assets/images/petSignIn.svg';
-import { Link, router } from 'expo-router';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -21,20 +20,24 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [disableOtp, setDisableOtp] = useState(false);
   const [inProgress, setInProgress] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   const handleLogin = () => {
     const isSuccess = true;
 
     if (isSuccess) {
-      router.replace('/signin');
+      router.replace('/');
     }
-    console.log('hi', email, password);
   };
 
   const handleEmail = () => {
     if (disableOtp) return;
 
-    console.log('email', email);
+    if(!email || email.trim() === ''){
+      setEmailError(true);
+      return;
+    }
+    setEmailError(false);
     setDisableOtp(true);
 
     setTimeout(() => {
@@ -70,13 +73,19 @@ export default function Login() {
               width: 300,
             }}
           >
-            <Text style={{ fontSize: 16, marginBottom: 4 }}>Email</Text>
+            <Text style={{ fontSize: 16, marginBottom: 4 }}>Email *</Text>
             <TextInput
               placeholder="Enter your Email"
               placeholderTextColor="#888"
               value={email}
-              onChangeText={setEmail}
-              style={inputStyle}
+              onChangeText={(text) => {
+                setEmail(text);
+                if (emailError) setEmailError(false); // Reset on typing
+              }}
+              style={[
+                inputStyle,
+                emailError && { borderColor: 'red' }, // Apply red border on error
+              ]}
             />
 
             <TouchableOpacity
