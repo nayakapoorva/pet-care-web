@@ -1,17 +1,17 @@
+import { Link, router } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  View,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  ScrollView,
-  Platform,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from 'react-native';
 import PetSignIn from '../../assets/images/petSignIn.svg';
-import { Link } from 'expo-router';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -20,6 +20,7 @@ export default function Login() {
   const [inProgress, setInProgress] = useState(false);
 
   const handleLogin = () => {
+    router.replace('/(tabs)/profile');
     console.log('hi', email, password);
   };
 

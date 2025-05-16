@@ -1,6 +1,5 @@
-import { View, Text } from 'react-native'
-import React from 'react'
 import { Stack } from 'expo-router'
+import React from 'react'
 
 const AuthLayout = () => {
   return (
@@ -9,19 +8,28 @@ const AuthLayout = () => {
         name="index"
         options={{
           title: "Sign in",
-          headerShown:true}}
+          headerShown:true,
+          headerBackVisible: false, 
+          gestureEnabled: false
+        }}
       />
        <Stack.Screen
         name="signup"
         options={{
           title: "Sign Up",
-          headerShown:true}}
+          headerShown:true,
+          headerBackVisible: false, 
+          gestureEnabled: false
+        }}
       />
       <Stack.Screen
         name="forgotPassword"
         options={{
           title: "Forgot Password",
-          headerShown:true}}
+          headerShown:true,
+          headerBackVisible: false, 
+          gestureEnabled: false
+        }}
       />
     </Stack>
   )

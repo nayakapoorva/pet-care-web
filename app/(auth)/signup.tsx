@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import {
-  View,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  ScrollView,
-  Platform,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from 'react-native';
-import PetSignIn from '../../assets/images/petSignIn.svg';
+// import PetSignIn from '../../assets/images/petSignIn.svg';
 import { Link } from 'expo-router';
 
 export default function Login() {
@@ -43,7 +43,7 @@ export default function Login() {
         >
           {/* Logo */}
           <View style={{ marginTop: 10, marginBottom: 10 }}>
-            <PetSignIn />
+            {/* <PetSignIn /> */}
           </View>
 
           {/* Form */}

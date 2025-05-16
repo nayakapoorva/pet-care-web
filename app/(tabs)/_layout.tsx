@@ -1,10 +1,9 @@
-import { View, Text } from 'react-native'
-import React from 'react'
 import { Tabs } from 'expo-router'
+import React from 'react'
 
 const _Layout = () => {
   return (
-    <Tabs>
+    <Tabs screenOptions={{headerShown:false}}>
         {/* <Tabs.Screen name="index" 
             options={{
                 title: "Home",
@@ -13,12 +12,12 @@ const _Layout = () => {
         <Tabs.Screen name="pets" 
             options={{
                 title: "Pets",
-                headerShown: false
+                headerShown: true
         }} />
         <Tabs.Screen name="profile" 
             options={{
                 title: "Profile",
-                headerShown: false
+                headerShown: true
         }} />
     </Tabs>
   )
