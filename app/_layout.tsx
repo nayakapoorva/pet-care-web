@@ -19,7 +19,17 @@ export default function RootLayout() {
       />
       <Stack.Screen
         name="(tabs)"
-        options={{headerShown:false}} />
+        options={{headerShown:false,
+          headerBackVisible: false, 
+          gestureEnabled: false
+        }}
+         />
+      <Stack.Screen
+        name="(track)"
+        options={{headerShown:false,
+          headerBackVisible: false, 
+          gestureEnabled: false
+        }} />
       <Stack.Screen
         name="petDetails/[id]"
         options={{headerShown:false}} />

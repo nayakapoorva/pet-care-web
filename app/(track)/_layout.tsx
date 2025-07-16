@@ -1,41 +1,34 @@
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-const _Layout = () => {
+export default function Layout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
         tabBarActiveTintColor: '#7B3F00',
         tabBarInactiveTintColor: 'gray',
-        
       }}
     >
-     
       <Tabs.Screen
-        name="pets"
+        name="deworming"
         options={{
-          title: 'Pets',
-          headerShown: true,
+          title: 'Deworming',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="paw" size={size} color={color} />
+            <MaterialIcons name="health-and-safety" size={size} color={color} />
           ),
         }}
       />
-
       <Tabs.Screen
-        name="profile"
+        name="vaccination"
         options={{
-          title: 'Profile',
-          headerShown: true,
+          title: 'Vaccination',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person" size={size} color={color} />
+            <MaterialIcons name="vaccines" size={size} color={color} />
           ),
         }}
       />
     </Tabs>
   );
-};
-
-export default _Layout;
+}
